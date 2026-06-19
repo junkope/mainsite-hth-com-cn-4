@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://junkope.github.io/mainsite-hth-com-cn-4/sitemap.xml

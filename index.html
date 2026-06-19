@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于华体会 · 产品服务说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f8f6f1;
+            color: #2e2b28;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            background: #fefcf8;
+            padding: 2.8rem 2.4rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.3rem;
+            color: #1f1c18;
+            border-left: 5px solid #cfb797;
+            padding-left: 1.2rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #7b736a;
+            margin-top: 0.2rem;
+            margin-bottom: 1.8rem;
+            padding-left: 1.8rem;
+        }
+
+        .summary-card {
+            background: #f3efe8;
+            padding: 1.5rem 1.8rem;
+            border-radius: 14px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #a9927a;
+        }
+
+        .summary-card p {
+            font-size: 1rem;
+            color: #3b3732;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-item {
+            background: #faf8f4;
+            padding: 1.2rem 1.2rem 1.2rem 1.6rem;
+            border-radius: 12px;
+            border: 1px solid #e7e1d7;
+            transition: all 0.15s ease;
+        }
+
+        .highlight-item strong {
+            display: block;
+            font-size: 1.05rem;
+            color: #4c443b;
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-item span {
+            font-size: 0.9rem;
+            color: #5f574e;
+        }
+
+        .usage-note {
+            background: #f4efe7;
+            padding: 1.6rem 1.8rem;
+            border-radius: 14px;
+            margin: 2rem 0 1.6rem 0;
+            border: 1px dashed #cbb9a6;
+        }
+
+        .usage-note h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.7rem;
+            color: #3a342e;
+        }
+
+        .usage-note ul {
+            list-style: none;
+            padding-left: 0.5rem;
+        }
+
+        .usage-note li {
+            position: relative;
+            padding-left: 1.6rem;
+            margin-bottom: 0.6rem;
+            color: #403b35;
+        }
+
+        .usage-note li::before {
+            content: "·";
+            position: absolute;
+            left: 0.3rem;
+            font-weight: 700;
+            color: #a68f7a;
+        }
+
+        .faq-mini {
+            margin: 2.2rem 0 1.4rem 0;
+            padding: 1.4rem 1.6rem;
+            background: #faf6f0;
+            border-radius: 14px;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #e2dad0;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3f3932;
+            font-size: 0.95rem;
+            padding: 0.3rem 0;
+        }
+
+        .faq-mini details p {
+            font-size: 0.9rem;
+            color: #5b534a;
+            margin-top: 0.3rem;
+            padding-left: 0.8rem;
+        }
+
+        .access-statement {
+            background: #eeebe4;
+            padding: 1.2rem 1.6rem;
+            border-radius: 12px;
+            margin: 1.6rem 0 2rem 0;
+            font-size: 0.9rem;
+            color: #4d463f;
+            border-left: 4px solid #b7a48c;
+        }
+
+        .link-sentence {
+            font-size: 1rem;
+            margin: 1.2rem 0 0.2rem 0;
+            color: #3f3a34;
+        }
+
+        .link-sentence a {
+            color: #7a6a59;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #cabbab;
+            padding-bottom: 1px;
+            transition: border-color 0.2s;
+        }
+
+        .link-sentence a:hover {
+            border-bottom-color: #4b4037;
+            color: #4b4037;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ded6cb;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: #8b8379;
+            text-align: right;
+            margin-top: 0.4rem;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+                padding-left: 0.8rem;
+            }
+
+            .subtitle {
+                padding-left: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .highlight-grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+
+            .summary-card, .usage-note, .faq-mini, .access-statement {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>华体会 · 产品说明</h1>
+        <div class="subtitle">稳定入口 · 面向日常使用的轻量介绍</div>
+
+        <div class="summary-card">
+            <p><strong>关于华体会：</strong> 一个聚焦信息整合与访问效率的产品，旨在为有明确目标的用户提供简洁、一致的页面体验。不堆砌功能，不偏离核心，保持入口的可靠与透明。</p>
+        </div>
+
+        <div class="highlight-grid">
+            <div class="highlight-item">
+                <strong>直接的结构</strong>
+                <span>页面层级克制，减少跳转干扰，优先保证内容可读性。</span>
+            </div>
+            <div class="highlight-item">
+                <strong>稳定的访问路径</strong>
+                <span>长期维护的地址，避免频繁变动，降低使用者记忆成本。</span>
+            </div>
+            <div class="highlight-item">
+                <strong>内容聚焦</strong>
+                <span>不嵌入无关模块，每个区块都有明确的上下文归属。</span>
+            </div>
+            <div class="highlight-item">
+                <strong>低视觉噪音</strong>
+                <span>中性配色、克制的高亮和留白，适配长时间浏览场景。</span>
+            </div>
+        </div>
+
+        <div class="usage-note">
+            <h2>使用思路</h2>
+            <ul>
+                <li>作为信息索引起点：通过固定地址快速进入需要的模块。</li>
+                <li>日常查询场景：适合需要重复调取相同页面内容的操作习惯。</li>
+                <li>将链接收藏或固定在浏览器栏，减少每次搜索的步骤。</li>
+                <li>适合在安静的工作流中使用，无弹窗或强制跳转打断。</li>
+            </ul>
+        </div>
+
+        <div class="faq-mini">
+            <details>
+                <summary>华体会主要面向哪些使用者？</summary>
+                <p>面向需要稳定网页入口的个人用户、轻度办公使用者以及对页面简洁度有要求的人群。不区分特定行业，以通用访问体验为主。</p>
+            </details>
+            <details>
+                <summary>是否需要注册或登录才能使用？</summary>
+                <p>当前页面所指向的地址为公开可访问内容，无需凭证即可浏览。具体功能模块可能因后续更新而调整，以实际页面说明为准。</p>
+            </details>
+            <details>
+                <summary>建议如何保存这个地址？</summary>
+                <p>可通过浏览器书签保存，或手动记录主域名。不建议通过第三方非官方渠道获取链接，以免指向错误页面。</p>
+            </details>
+        </div>
+
+        <div class="access-statement">
+            <strong>访问说明</strong><br>
+            本页面所指向的地址为 <a href="https://mainsite-hth.com.cn" style="color: #7a6a59; text-decoration: underline; font-weight: 500;">华体会</a>，由相关方维护。建议通过浏览器直接输入域名访问，避免使用来源不明的重定向链接。页面内容可能不定期更新，以实际显示为准。
+        </div>
+
+        <div class="link-sentence">
+            如需了解产品或直接使用，可前往 <a href="https://mainsite-hth.com.cn">华体会</a> 页面浏览。
+        </div>
+
+        <hr>
+        <div class="footer-note">产品说明页 · 信息仅供参考</div>
+    </div>
+</body>
+</html>
