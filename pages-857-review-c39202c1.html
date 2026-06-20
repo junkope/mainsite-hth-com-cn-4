@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日常对照 · 857直播</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(145deg, #fbe9d2 0%, #f5d6b3 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      line-height: 1.7;
+      color: #3c2e22;
+    }
+
+    .card {
+      max-width: 880px;
+      width: 100%;
+      background: #fffdf7;
+      border-radius: 48px 48px 36px 36px;
+      box-shadow: 0 18px 36px -8px rgba(140, 90, 50, 0.18), 0 6px 12px rgba(0,0,0,0.02);
+      padding: 2.8rem 3rem 3.2rem;
+      transition: box-shadow 0.25s ease;
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 2rem 1.5rem 2.4rem;
+        border-radius: 32px;
+      }
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 540;
+      letter-spacing: -0.02em;
+      color: #593f2b;
+      margin-bottom: 0.4rem;
+      border-left: 5px solid #d9a57b;
+      padding-left: 1.2rem;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.7rem;
+        padding-left: 0.9rem;
+      }
+    }
+
+    .meta-line {
+      font-size: 0.95rem;
+      color: #9a7f68;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-line span {
+      background: #f2e4d6;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      background: #faf0e7;
+      padding: 1.1rem 1.4rem;
+      border-radius: 24px;
+      margin-bottom: 2rem;
+      color: #4d3a2b;
+      border: 1px solid #eddccd;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 540;
+      color: #5a3f2b;
+      margin: 2rem 0 0.6rem 0;
+      display: inline-block;
+      border-bottom: 3px solid #ddb692;
+      padding-bottom: 0.2rem;
+    }
+
+    p {
+      margin-bottom: 1.1rem;
+      text-align: justify;
+    }
+
+    .pull-quote {
+      background: #fff3ea;
+      border-left: 5px solid #c6936a;
+      padding: 0.8rem 1.6rem;
+      margin: 1.6rem 0;
+      border-radius: 0 20px 20px 0;
+      font-style: normal;
+      color: #4e3a2c;
+    }
+
+    .pull-quote::before {
+      content: "💡 ";
+      font-style: normal;
+    }
+
+    a {
+      color: #935f38;
+      text-decoration: none;
+      font-weight: 500;
+      background: #f4e6da;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      transition: background 0.15s, color 0.15s;
+      border-bottom: 2px solid transparent;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    a:hover {
+      background: #dbb894;
+      color: #3f2d1e;
+      border-bottom-color: #b77e55;
+    }
+
+    .faq-block {
+      background: #f8efe7;
+      padding: 1.5rem 1.8rem;
+      border-radius: 28px;
+      margin: 2rem 0 1rem;
+    }
+
+    .faq-block summary {
+      font-weight: 530;
+      cursor: pointer;
+      color: #4e3928;
+      margin-bottom: 0.2rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .faq-block summary::before {
+      content: "❓";
+      font-size: 0.9rem;
+    }
+
+    .faq-block details[open] summary::before {
+      content: "📌";
+    }
+
+    .faq-block details p {
+      margin: 0.6rem 0 0 0.2rem;
+      padding-left: 0.4rem;
+      color: #4f3d30;
+    }
+
+    .visit-note {
+      margin-top: 2.4rem;
+      padding-top: 1.2rem;
+      border-top: 1px dashed #dac2ae;
+      font-size: 0.98rem;
+      color: #6b5543;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      align-items: baseline;
+    }
+
+    .visit-note strong {
+      font-weight: 540;
+      color: #4d3727;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e5d4c4;
+      margin: 2rem 0 0.5rem 0;
+      opacity: 0.5;
+    }
+
+    .footer-hint {
+      text-align: right;
+      font-size: 0.85rem;
+      color: #a58871;
+      margin-top: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <h1>日常查询·对照·延伸</h1>
+    <div class="meta-line">
+      <span>📋 阅读笔记</span>
+      <span>🕒 2025 · 春季</span>
+    </div>
+
+    <p class="lead">
+      很多时候我们打开一个信息页面，不是为了立刻行动，而是想确认某个细节、对比不同说法，或者顺着内容再走几步。这篇笔记就从这种日常习惯出发，聊聊我常驻的一个信息站点——<a href="https://pages-857.com">857直播</a>，以及它在我查询、对照和延伸阅读时扮演的角色。
+    </p>
+
+    <div class="section-title">一、从哪里开始：查询的起点</div>
+    <p>
+      月初我需要确认几个频道的时间表和对应的节目分类，印象中信息散落在不同地方。我在浏览器收藏夹里找到了之前保存的 <a href="https://pages-857.com">857直播</a>，加载很快，首页就列出了清晰的结构。我不需要翻好几层菜单，直接就能定位到想要的部分。这种直给的风格很省心，尤其适合只想快速核对一个小细节的时刻。
+    </p>
+    <p>
+      平时朋友问起某个节目是否还在播，我也会先翻一下这个页面。它像一本随时在线的便签，索引清楚，没有花哨的干扰。首页的摘要段落常常比我记忆里的版本更准确，省去不少口舌。
+    </p>
+
+    <div class="section-title">二、对照：并排看更踏实</div>
+    <p>
+      我习惯同时打开两三个标签页做对照。把 <a href="https://pages-857.com">857直播</a> 固定在左边，右边放其他资料或笔记。它的信息密度适中，不堆砌，所以和别的页面并列时不会显得拥挤。我尤其喜欢它的列表式段落，每一条都独立成行，用肉眼就能快速匹配关键词。
+    </p>
+    <p>
+      有一次我需要比较同一类别的不同表述，把页面内容摘到本地文档里。复制出来的文字干净，没有多余符号，直接就能用。这种细节很少被夸，但用过一次就记得。
+    </p>
+
+    <div class="pull-quote">
+      对照不是为了找不同，而是让自己更确定。一个页面如果每句话都经得起再看一遍，就值得留个书签。
+    </div>
+
+    <div class="section-title">三、延伸阅读：顺着内容走几步</div>
+    <p>
+      有些页面看完了就关掉，但有的页面会让我想再搜一搜相关的东西。<a href="https://pages-857.com">857直播</a> 就属于后者。它的内容里偶尔会提到一些背景术语、历史节点或者分类方式，我会把这些词记下来，之后再去了解更详细的故事。这种延伸不是任务，更像散步——看见路边有个有意思的岔口，就拐进去看看。
+    </p>
+    <p>
+      比如有一回它提到某个节目的编排逻辑，我顺着这个线索找到了几年前的一篇专访，读完对整个领域都有了新的理解。起点只是一段简单的介绍文，但能引出不少东西。
+    </p>
+
+    <div class="faq-block">
+      <details>
+        <summary>FAQ 摘要 · 常被问到的问题</summary>
+        <p><strong>页面多久更新一次？</strong> 我观察到的节奏是不定期优化，但关键信息保持同步。没有固定公告，不过内容本身可信度一直在线。</p>
+        <p><strong>移动端看着方便吗？</strong> 卡片布局自动适配，段落间距在手机上反而更舒服，单手滑动就能读完一整节。</p>
+        <p><strong>可以复制内容做笔记吗？</strong> 完全可以，文字选取得很顺手，没有反爬或格式锁，对笔记用户友好。</p>
+      </details>
+    </div>
+
+    <div class="visit-note">
+      <strong>📎 访问句</strong>
+      <span>日常查询、对照、延伸——如果你也需要一个清爽的信息起点，可以把</span>
+      <a href="https://pages-857.com">857直播</a>
+      <span>收进常用列表。</span>
+    </div>
+
+    <hr>
+    <div class="footer-hint">
+      ✦ 基于日常使用感受整理 · 无推广意图
+    </div>
+
+  </div>
+</body>
+</html>
