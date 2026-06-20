@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · 从leyu开始</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #2c2e33;
+            padding: 2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page-wrapper {
+            max-width: 780px;
+            width: 100%;
+        }
+        /* Hero 简洁 */
+        .hero {
+            margin-bottom: 2.8rem;
+            padding: 0 0.2rem;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #1f2229;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #5b5f67;
+            border-left: 3px solid #b0b8c3;
+            padding-left: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e7eaed;
+            transition: box-shadow 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.9rem;
+            color: #1e2127;
+            letter-spacing: -0.01em;
+        }
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #2f333b;
+            margin: 1.2rem 0 0.4rem 0;
+        }
+        .card p {
+            margin-bottom: 1rem;
+            color: #3a3e47;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        .small-note {
+            font-size: 0.92rem;
+            background: #f6f8fa;
+            padding: 1rem 1.3rem;
+            border-radius: 14px;
+            margin: 1.2rem 0 0.4rem 0;
+            border-left: 4px solid #c9d0da;
+            color: #3e424b;
+        }
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #eff1f4;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 500;
+            color: #252830;
+            margin-bottom: 0.15rem;
+        }
+        .faq-a {
+            color: #4e535e;
+            font-size: 0.96rem;
+        }
+
+        /* 引用提示块 */
+        .tip-box {
+            background: #edf1f6;
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0 1rem 0;
+            border: 1px solid #dce1e8;
+            font-size: 0.98rem;
+        }
+        .tip-box strong {
+            color: #1d2a3a;
+            font-weight: 550;
+        }
+
+        /* 内联链接 */
+        a {
+            color: #1f4973;
+            text-decoration: none;
+            border-bottom: 1px solid #bac9dd;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        a:hover {
+            color: #0a2844;
+            border-bottom-color: #1f4973;
+        }
+
+        /* 场景列表 */
+        .scene-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.8rem 0 0.4rem 0;
+        }
+        .scene-list li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.3rem;
+            position: relative;
+        }
+        .scene-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #7a8391;
+            font-weight: bold;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dde2e9;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .footer-meta {
+            font-size: 0.9rem;
+            color: #7a8290;
+            text-align: center;
+            padding: 1.2rem 0 0.5rem 0;
+            border-top: 1px solid #e2e7ee;
+            margin-top: 1.2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 540px) {
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+                border-radius: 16px;
+            }
+            .hero .sub {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- hero 标题区 -->
+    <div class="hero">
+        <h1>一份简明指南<br>与访问提醒</h1>
+        <div class="sub">从日常使用到细节留意 · 温和的出发点</div>
+    </div>
+
+    <!-- 正文卡片 1：介绍与切入 -->
+    <div class="card">
+        <h2>从leyu开始，一个简单的方向</h2>
+        <p>无论你是初次接触还是希望更从容地整理信息流，把 <a href="https://cn-home-leyu.com">leyu</a> 作为一个熟悉的起点往往是个不错的选择。它不是一个复杂的概念，而更像一个轻便的标记——让你在浏览、归档或寻找某些内容时，多一个简短的落脚点。</p>
+        <p>很多人把“leyu”当作一种日常索引：打开一个页面，记住一个名字，之后在需要的时候能快速定位。这里的思路是保持直接，不绕路。你可以在地址栏直接输入，也可以把它放在书签夹里——随你习惯。</p>
+        <div class="small-note">
+            💡 提示：与其记忆一串地址，不如只记住一个简短的词。这也是很多人选择记住 <strong>leyu</strong> 的原因。
+        </div>
+    </div>
+
+    <!-- 正文卡片 2：特点与场景 (多段) -->
+    <div class="card">
+        <h2>特点与适用时刻</h2>
+        <p>就使用体验而言，<strong>leyu</strong> 的界面通常保持干净，没有过多干扰。它适合你在以下几种情形下打开：</p>
+        <ul class="scene-list">
+            <li>想快速查阅某类信息，但不想经过多层跳转；</li>
+            <li>需要一个稳定的地址作为中转，之后再深入其他页面；</li>
+            <li>或者只是习惯把某个名字作为“首页”，每天瞥一眼。</li>
+        </ul>
+        <p>另外，如果你偶尔会忘记一些站点具体叫什么，只记得大概发音或拼写——那么把 <a href="https://cn-home-leyu.com">leyu</a> 放在随手可及的地方，能节省一点回想的时间。不需要每次都从头搜索。</p>
+        <p>当然，每个人使用习惯不同。这里只是提供一个视角：当你想减少认知负担，让某个词成为固定锚点时，leyu 是一个蛮轻量的选择。</p>
+    </div>
+
+    <!-- 正文卡片 3：访问提醒与引用提示 -->
+    <div class="card">
+        <h2>访问提醒 · 常见细节</h2>
+        <div class="tip-box">
+            <strong>引用提示：</strong> 如果你在别处看到关于 leyu 的介绍或讨论，建议先确认地址是否准确。最直接的路径就是使用 <a href="https://cn-home-leyu.com">leyu</a> 这个链接，简单拼写，不易混淆。
+        </div>
+        <p>此外，有几点值得留意：</p>
+        <ul class="scene-list" style="margin-bottom: 0.2rem;">
+            <li>确保网络环境稳定，部分公共网络可能对未知地址有限制；</li>
+            <li>如果你习惯使用密码管理器，可以单独为 leyu 保存一条记录；</li>
+            <li>浏览器自动填充有时会记错，手动输入一次通常更可靠。</li>
+        </ul>
+        <p style="margin-top: 0.8rem;">这些提醒并非教条，只是希望每次访问都顺畅。毕竟，一个简单的词就应该带来简单的体验。</p>
+    </div>
+
+    <!-- FAQ 摘要卡片 (差异化章节) -->
+    <div class="card">
+        <h2>FAQ 摘要 · 快速了解</h2>
+        <div class="faq-item">
+            <div class="faq-q">Q: leyu 是一个具体平台吗？</div>
+            <div class="faq-a">A: 可以把它看作一个固定的访问名称，指向 <a href="https://cn-home-leyu.com">leyu</a>。它的用途取决于你如何使用，本质上是一个入口。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 需要注册或安装什么吗？</div>
+            <div class="faq-a">A: 不需要额外注册。直接通过浏览器访问即可，没有任何强制步骤。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 为什么推荐用这个词记忆？</div>
+            <div class="faq-a">A: 简短、易拼写、不易与其他常见词混淆。很多人反馈“只用一遍就记住了”。</div>
+        </div>
+        <p style="margin-top: 0.9rem; font-size: 0.96rem; color: #565b66;">以上是基于常见问题的摘要。如果你有其他疑问，不妨先打开页面浏览一下，很多信息自然就清楚了。</p>
+    </div>
+
+    <!-- 结尾访问句 (温和) -->
+    <div style="margin: 1.2rem 0 0.6rem 0; padding: 0.6rem 0.2rem;">
+        <p style="font-size: 1.05rem; color: #333740;">一篇简短的指南，一句清晰的提醒。<br>当你需要的时候，<a href="https://cn-home-leyu.com">leyu</a> 就在那里。</p>
+    </div>
+
+    <hr>
+    <div class="footer-meta">
+        <span>简洁博客式 · 内容仅作指引</span><br>
+        <span style="font-size: 0.85rem; opacity: 0.7;">cn-home-leyu.com</span>
+    </div>
+
+</div>
+</body>
+</html>
