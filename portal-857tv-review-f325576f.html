@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>857直播 · 信息索引与内容整理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #fde6c8 0%, #f9cfa0 50%, #f5b87a 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem 1rem;
+    }
+
+    .page-wrapper {
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    /* 通用卡片 */
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(2px);
+      border-radius: 36px 16px 36px 16px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 12px 28px -8px rgba(140, 80, 30, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 34px -10px rgba(120, 70, 20, 0.22);
+    }
+
+    /* hero 卡片 */
+    .hero {
+      text-align: center;
+      background: linear-gradient(145deg, rgba(255,245,235,0.92), rgba(255,232,210,0.92));
+      backdrop-filter: blur(4px);
+      border-radius: 48px 20px 48px 20px;
+      padding: 3rem 2rem 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 580;
+      letter-spacing: -0.02em;
+      color: #4d2a15;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1.15rem;
+      color: #6b422a;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto 1.2rem;
+      line-height: 1.6;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #dba87b;
+      color: #2f1b0d;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* 主视觉区域（带装饰） */
+    .visual-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin-top: 0.2rem;
+    }
+
+    .visual-card {
+      flex: 2 1 380px;
+    }
+
+    .visual-card p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #3b281b;
+      margin-bottom: 1rem;
+    }
+
+    .stat-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px dashed #dbb697;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .stat-num {
+      font-size: 1.7rem;
+      font-weight: 520;
+      color: #7b4a28;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #6a4b33;
+    }
+
+    .illustration-box {
+      flex: 1 1 200px;
+      background: #efd6be;
+      border-radius: 28px 12px 28px 12px;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4d2f1b;
+      font-weight: 450;
+      font-size: 0.95rem;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+      background-image: radial-gradient(circle at 20% 30%, #f7e1cb 2px, transparent 2px), 
+                        radial-gradient(circle at 80% 70%, #e7c7a8 3px, transparent 3px);
+      background-size: 40px 40px, 60px 60px;
+    }
+
+    /* 用途卡片 (三列) */
+    .usage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .usage-item {
+      background: #fff7ef;
+      border-radius: 24px 12px 24px 12px;
+      padding: 1.5rem 1.2rem;
+      transition: all 0.2s;
+    }
+
+    .usage-item h3 {
+      font-size: 1.2rem;
+      font-weight: 540;
+      color: #4d2a15;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .usage-item p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #4b3627;
+    }
+
+    .usage-item .emoji-tag {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    /* 适合人群卡片 - 两列 */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      margin-top: 0.8rem;
+    }
+
+    .audience-tag {
+      background: #f1ddd0;
+      border-radius: 60px 20px 60px 20px;
+      padding: 0.9rem 1.2rem;
+      font-size: 1rem;
+      color: #3f281b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s;
+    }
+
+    .audience-tag span {
+      font-weight: 460;
+    }
+
+    .audience-tag .label-light {
+      opacity: 0.7;
+      font-size: 0.85rem;
+    }
+
+    .audience-tag:hover {
+      background: #e7cbaf;
+    }
+
+    /* 自然链接段落卡片 */
+    .link-section {
+      background: rgba(250, 240, 228, 0.8);
+      backdrop-filter: blur(2px);
+    }
+
+    .link-section p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #2e1f14;
+      margin-bottom: 0.6rem;
+    }
+
+    .link-section a {
+      color: #7f4f2c;
+      background: #f3e1ce;
+      text-decoration: none;
+      font-weight: 520;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      transition: background 0.2s, color 0.15s;
+      white-space: nowrap;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    .link-section a:hover {
+      background: #dba87b;
+      color: #2f1b0d;
+    }
+
+    .faq-preview {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dbbb9e;
+    }
+
+    .faq-preview details {
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-preview summary {
+      font-weight: 490;
+      color: #4d2a15;
+      cursor: pointer;
+      padding: 0.4rem 0;
+    }
+
+    .faq-preview summary::marker {
+      color: #b5835a;
+    }
+
+    .faq-preview .answer {
+      padding: 0.4rem 0 0.6rem 1rem;
+      color: #3f2b1d;
+      font-size: 0.95rem;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #dbbba0;
+      margin: 0.8rem 0;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #65462e;
+      opacity: 0.7;
+      margin-top: 1rem;
+      padding: 1rem 0 0.3rem;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 650px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      .visual-row {
+        flex-direction: column;
+      }
+      .illustration-box {
+        min-height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="card-grid">
+
+    <!-- hero 主视觉 -->
+    <div class="card hero">
+      <h1>857直播</h1>
+      <div class="sub">从内容整理的角度，重新理解一个直播信息平台。</div>
+      <div class="tagline">资料索引 · 分类梳理 · 场景观察</div>
+    </div>
+
+    <!-- 主视觉 + 简介卡片 -->
+    <div class="card visual-row">
+      <div class="visual-card">
+        <p>如果只是把 857直播 看作一个单纯的直播站点，可能忽略了它背后积累的内容脉络。近两年，围绕直播产生的信息片段越来越多——频道分类、时段安排、互动方式、社区讨论……这些碎片如果不加整理，很容易被淹没在信息流里。</p>
+        <p>这个页面尝试从资料索引的角度，梳理一些常见的使用场景和人群特征，让信息本身更清晰一些。下面的卡片基于公开可观察到的内容方向做了简单归纳，谈不上全面，但或许能提供一点参考。</p>
+        <div class="stat-mini">
+          <div class="stat-item"><span class="stat-num">≈7</span><span class="stat-label">内容方向</span></div>
+          <div class="stat-item"><span class="stat-num">3+</span><span class="stat-label">常见时段</span></div>
+          <div class="stat-item"><span class="stat-num">多</span><span class="stat-label">互动形式</span></div>
+        </div>
+      </div>
+      <div class="illustration-box">
+        <span>信息卡片<br>· 索引 · 归类</span>
+      </div>
+    </div>
+
+    <!-- 用途卡片 -->
+    <div class="card">
+      <h2 style="font-size:1.6rem; font-weight:540; color:#4d2a15; margin-bottom:0.6rem;">用途与内容方向</h2>
+      <p style="color:#543b29; margin-bottom:1.4rem; font-size:0.98rem;">以下分类基于信息形态与常见场景，不构成官方定义。</p>
+      <div class="usage-grid">
+        <div class="usage-item">
+          <h3><span class="emoji-tag">📺</span> 频道浏览</h3>
+          <p>按类别或时段浏览不同的直播内容，适合想快速了解当前有哪些方向在播的用户。</p>
+        </div>
+        <div class="usage-item">
+          <h3><span class="emoji-tag">🔎</span> 主题检索</h3>
+          <p>通过关键词或标签寻找特定内容的直播回放或介绍，偏向信息查阅。</p>
+        </div>
+        <div class="usage-item">
+          <h3><span class="emoji-tag">📋</span> 节目单参考</h3>
+          <p>部分用户会整理直播时段与主题，做成简单的节目表供自己或同好参考。</p>
+        </div>
+        <div class="usage-item">
+          <h3><span class="emoji-tag">💬</span> 社区讨论</h3>
+          <p>围绕直播内容展开的交流、提问或分享，有时会形成小范围的知识沉淀。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 适合人群卡片 -->
+    <div class="card">
+      <h2 style="font-size:1.6rem; font-weight:540; color:#4d2a15; margin-bottom:0.4rem;">适合哪些人</h2>
+      <p style="color:#543b29; margin-bottom:1.2rem; font-size:0.98rem;">基于使用习惯的粗略画像，每个人可能同时属于多个群体。</p>
+      <div class="audience-grid">
+        <div class="audience-tag"><span>🎧</span> <span>内容浏览者</span> <span class="label-light">· 常看直播</span></div>
+        <div class="audience-tag"><span>📚</span> <span>信息整理者</span> <span class="label-light">· 喜欢做笔记</span></div>
+        <div class="audience-tag"><span>🧩</span> <span>分类爱好者</span> <span class="label-light">· 按主题阅读</span></div>
+        <div class="audience-tag"><span>🤝</span> <span>社区参与者</span> <span class="label-light">· 偶尔互动</span></div>
+        <div class="audience-tag"><span>📖</span> <span>资料收集者</span> <span class="label-light">· 留档参考</span></div>
+        <div class="audience-tag"><span>⏳</span> <span>时段固定观众</span> <span class="label-light">· 定时观看</span></div>
+      </div>
+    </div>
+
+    <!-- 自然链接段落 + FAQ 摘要 -->
+    <div class="card link-section">
+      <p>如果你对直播信息本身的整理方式感兴趣，或者想看看当前的频道与内容分布，不妨从 <a href="https://portal-857tv.com">857直播</a> 开始自己观察。很多时候，信息的价值不在于它本身，而在于我们如何连接它。</p>
+      <p>页面提到的分类、人群和用途，都只是基于公开信息做的粗线条归纳。真正的信息图谱，可能还需要花些时间亲自梳理。</p>
+      <hr>
+      <div class="faq-preview">
+        <details>
+          <summary>这个页面是官方介绍吗？</summary>
+          <div class="answer">不是。这是一个从资料整理角度做的信息卡片页，不隶属于任何平台或团队。</div>
+        </details>
+        <details>
+          <summary>卡片里的内容准确吗？</summary>
+          <div class="answer">基于可观察到的常见做法和用户分享整理，带有归纳性质，建议以实际页面为准。</div>
+        </details>
+        <details>
+          <summary>我可以用这些卡片做参考吗？</summary>
+          <div class="answer">当然可以，但请注意它们只是信息索引式的概括，不涉及深度分析或商业用途。</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      · 信息卡片 · 内容整理 · 仅供索引参考 ·
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
